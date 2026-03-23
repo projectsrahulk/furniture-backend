@@ -1,0 +1,23 @@
+const Redis = require('ioredis');
+
+// Upstash Redis (FREE tier)
+const redis = new Redis(process.env.REDIS_URL || {
+  host: process.env.REDIS_HOST || 'localhost',
+  port: process.env.REDIS_PORT || 6379,
+  password: process.env.REDIS_PASSWORD,
+  retryStrategy: (times) => {
+    const delay = Math.min(times * 50, 2000);
+    return delay;
+  },
+  maxRetriesPerRequest: 3
+});
+
+redis.on('connect', () => {
+  console.log('✅ Redis connected');
+});
+
+redis.on('error', (err) => {
+  console.error('❌ Redis error:', err);
+});
+
+module.exports = redis;
