@@ -20,7 +20,8 @@ app.use(cookieParser());
 
 // ✅ PUT IT HERE (before routes)
 app.use(cors({
-  origin: "*"
+  origin: "https://furniture-frontend-zr2v.vercel.app",
+  credentials: true
 }));
 
 app.use(express.json({ limit: '10mb' }));
