@@ -20,7 +20,7 @@ app.use(cookieParser());
 
 // ✅ PUT IT HERE (before routes)
 app.use(cors({
-  origin: "https://furniture-frontend-zr2v.vercel.app",
+  origin: "https://shreefurniture.vercel.app",
   credentials: true
 }));
 
