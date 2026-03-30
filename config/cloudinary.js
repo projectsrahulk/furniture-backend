@@ -23,13 +23,10 @@ const storage = new CloudinaryStorage({
         { width: 1200, height: 1200, crop: 'limit', quality: 'auto:best' } // Full size
       ],
       
-      // Format optimization
-      format: 'webp', // Better compression
+      // Preserve more detail on the original uploaded asset
+      quality: 'auto:best',
       
-      // Auto quality
-      quality: 'auto',
-      
-      // Fetch format (AVIF if supported, else WebP)
+      // Let Cloudinary choose the best delivery format without forcing extra compression
       fetch_format: 'auto'
     };
   }
